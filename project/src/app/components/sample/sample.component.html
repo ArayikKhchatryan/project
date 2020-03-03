@@ -1,0 +1,48 @@
+<div style="margin-top: 38px; margin-left:  155px; background-color: white; width: 1240px; padding: 30px; font-family: 'Roboto'">
+  <form #myForm="ngForm">
+    <p style="font-size: 16px">SAMPLE</p><br><br>
+
+    <label>
+      <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+        Project Code</p>
+      <input required/>
+    </label>
+
+    <label style="margin-left: 25px">
+      <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+        Project Title </p>
+      <input style="width: 890px;" required>
+    </label><br><br><br>
+
+    <label>
+      <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+        Description</p><br>
+      <textarea [cols]="152" [rows]="5"></textarea>
+    </label><br><br>
+
+    <div style="font-size: 13px">
+      <label>
+        <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+          Implementation Status</p>
+        <select required>
+        </select>
+      </label>
+      <label style="margin-left: 230px">
+        <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+          Planned Start Date </p>
+        <input type="date" [(ngModel)]="startDate" (keyup)="setStartDate($event)"  required>
+      </label>
+      <label style="margin-left: 50px">
+        <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+          Planned End Date </p>
+        <input type="date" [(ngModel)]="endDate"  >
+      </label>
+      <label style="margin-left: 50px">
+        <p style="font-weight:400; color:rgba(117, 117, 117, 0.866666666666667); font-size: 13px">
+          Duration </p>
+        <input type="datetime" [disabled]="$any(true)" [(ngModel)]="duration">
+<!--        <button (click)="getDuration()">aa</button>-->
+      </label>
+    </div>
+  </form>
+</div>
