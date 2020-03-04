@@ -8,6 +8,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {SampleComponent} from './components/sample/sample.component';
 import {SectorsComponent} from './components/sectors/sectors.component';
 import {LocationsComponent} from './components/locations/locations.component';
+import {installPackage} from '@angular/cli/tasks/install-package';
+import {Sectors} from './model/sectors';
+import {ProjectModel} from './model/project-model';
+import { InputDirective } from './directives/input.directive';
 
 @NgModule({
   declarations: [
@@ -15,15 +19,19 @@ import {LocationsComponent} from './components/locations/locations.component';
     HeaderComponent,
     SampleComponent,
     SectorsComponent,
-    LocationsComponent
+    LocationsComponent,
+    InputDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  // providers: [Sectors, { provide: Sectors, useClass: ProjectModel }],
+  providers: [Sectors,[{ provide: ProjectModel, useClass: Sectors }] ],
   bootstrap: [AppComponent]
 })
+
+// new ProjectModel("","","",1, null, null, []);
 export class AppModule {
 }

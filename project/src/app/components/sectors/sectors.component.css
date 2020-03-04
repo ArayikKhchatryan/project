@@ -1,0 +1,20 @@
+p{
+  font-family: Roboto;
+}
+
+input, select, button{
+  height: 33px;
+}
+
+input{
+  margin-left: 110px;
+  width: 90px;
+}
+
+button{
+  width: 85px;
+  height: 35px;
+  color: white;
+  background-color: rgba(111, 172, 40, 1);
+  margin-left: 110px;
+}

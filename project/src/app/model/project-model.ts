@@ -7,6 +7,7 @@ export class ProjectModel {
               public startDate: Date, public endDate: Date, public sectors: Sectors[]) {
     ProjectModel.id += 1;
   }
-
-
 }
+
+
+

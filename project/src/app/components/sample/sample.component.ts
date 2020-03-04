@@ -1,36 +1,52 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {Data} from '@angular/router';
+import {ClassifierServiceService} from '../../services/classifier-service.service';
 
 @Component({
   selector: 'app-sample',
   templateUrl: './sample.component.html',
   styleUrls: ['./sample.component.css']
 })
-export class SampleComponent implements OnInit {
+export class SampleComponent implements OnInit, DoCheck{
 
-  constructor() {
+  constructor(public cs: ClassifierServiceService) {
   }
 
   ngOnInit(): void {
 
   }
 
-  s(d: Date){
-    alert(d.valueOf());
-    let p = new Date(d);
-    alert(p);
-  };
+  startDate;
+  endDate;
+  duration = "";
 
-  startDate: Date;
-  endDate: Date;
-  duration: Date;
-
-  setStartDate(startDate) {
-    this.startDate = startDate;
+  pp() {
+    new Date().getDay();
   }
 
-  setEndDate(endDate) {
-    this.endDate = endDate;
+  ngDoCheck(): void {
+    this.setStartDate(this.startDate, this.endDate);
   }
+
+  setStartDate(StartDate: string, EndDate?: string) {
+    if(this.endDate && this.startDate){
+      this.startDate = new Date(StartDate).getTime();
+      this.endDate = new Date(EndDate).getTime();
+      let tarb = this.endDate - this.startDate;
+      let orTarb = tarb / (60 * 60 * 24 * 1000);
+      // alert(`tarb ${orTarb} or`);
+      this.duration = `${orTarb} or`;
+    }
+    else if(StartDate){
+      this.duration = StartDate;
+    }
+  }
+
+
+
+
+  imp_statuses = this.cs.getClasssifier('1');
+
 
   // getDuration() {
   //   if (this.startDate == undefined && this.endDate == undefined) {

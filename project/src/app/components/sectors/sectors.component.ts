@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ClassifierServiceService} from '../../services/classifier-service.service';
 
 @Component({
   selector: 'app-sectors',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cs: ClassifierServiceService) {
+  }
 
   ngOnInit(): void {
   }
+
+  sectors = this.cs.getClasssifier('2');
 
 }
