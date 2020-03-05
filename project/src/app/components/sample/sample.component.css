@@ -7,3 +7,15 @@ p {
   color: rgba(117, 117, 117, 0.866666666666667);
   font-size: 13px;
 }
+
+
+
+
+input.ng-touched.ng-invalid {border:solid red 1px;}
+input.ng-touched.ng-valid {border:solid green 1px;}
+
+select.ng-touched.ng-invalid {border:solid red 1px;}
+select.ng-touched.ng-valid {border:solid green 1px;}
+
+textarea.ng-touched.ng-invalid {border:solid red 1px;}
+textarea.ng-touched.ng-valid {border:solid green 1px;}

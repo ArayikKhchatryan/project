@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClassifierServiceService} from '../../services/classifier-service.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-sectors',
@@ -15,5 +16,14 @@ export class SectorsComponent implements OnInit {
   }
 
   sectors = this.cs.getClassifier('2');
+
+  sectorsForm = new FormGroup({
+    percent: new FormControl(""),
+    sector: new FormControl(undefined),
+  });
+
+  sectorsAdd(){
+    console.log(this.sectorsForm.value)
+  }
 
 }

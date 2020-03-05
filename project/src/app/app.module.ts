@@ -12,7 +12,7 @@ import {installPackage} from '@angular/cli/tasks/install-package';
 import {Sectors} from './model/sectors';
 import {ProjectModel} from './model/project-model';
 import { InputDirective } from './directives/input.directive';
-import {Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { AddComponentComponent } from './components/add-component/add-component.component';
 
 
@@ -35,7 +35,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    RouterModule
   ],
   // providers: [Sectors, { provide: Sectors, useClass: ProjectModel }],
   // providers: [Sectors,[{ provide: ProjectModel, useClass: Sectors }] ],

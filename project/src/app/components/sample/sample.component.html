@@ -5,7 +5,7 @@
     <label>
       <p>
         Project Code</p>
-      <input type="text" appInput formControlName="projectCode" required/>
+      <input type="text" appInput formControlName="projectCode"  required/>
     </label>
 
     <label style="margin-left: 25px">
@@ -24,7 +24,7 @@
         <p>
           Implementation Status</p>
         <select appInput style="width: 270px" formControlName="implementationStatus" required>
-          <option [value]=null>-select-</option>
+          <option [value]=0 selected>-select-</option>
           <option *ngFor="let status of imp_statuses" [value]="status.id">{{status.name}}</option>
         </select>
       </label>
@@ -44,7 +44,7 @@
       <label style="margin-left: 50px">
         <p>
           Duration </p>
-        <input #pp appInput [disabled]="$any(true)" *ngIf="!pp.value" [value]="duration">
+        <input appInput [disabled]="$any(true)"  [value]="duration">
         <!--        <button (click)="getDuration()">aa</button>-->
       </label>
     </div>

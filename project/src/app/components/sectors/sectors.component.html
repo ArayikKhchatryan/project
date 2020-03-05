@@ -1,13 +1,17 @@
-<div style="margin-top: 34px; margin-left:  155px; background-color: white; width: 1240px; padding: 22px">
-  <p style="font-size: 16px">Sectors (in line table)</p><br>
-  <div style="height: 200px">
+<form [formGroup]="sectorsForm" (ngSubmit)="sectorsAdd()">
+  <div style="margin-top: 34px; margin-left:  155px; background-color: white; width: 1240px; padding: 22px">
+    <p style="font-size: 16px">Sectors (in line table)</p><br>
+    <div style="height: 300px">
+      <table>
+
+      </table>
+    </div>
+    <select style="width: 270px" formControlName="sector" appInput>
+      <option *ngFor="let sector of sectors" [value]="sector.id">{{sector.name}}</option>
+    </select>
+
+    <input type="number" formControlName="percent" appInput #name>
+    <button>ADD</button>
+
   </div>
-
-  <select style="width: 270px">
-    <option *ngFor="let sector of sectors" [value]="sector.id">{{sector.name}}</option>
-  </select>
-
-  <input type="number">
-  <button>ADD</button>
-
-</div>
+</form>
