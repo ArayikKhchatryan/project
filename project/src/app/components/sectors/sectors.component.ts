@@ -14,6 +14,6 @@ export class SectorsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sectors = this.cs.getClasssifier('2');
+  sectors = this.cs.getClassifier('2');
 
 }

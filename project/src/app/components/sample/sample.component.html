@@ -1,52 +1,55 @@
 <div
   style="margin-top: 38px; margin-left:  155px; background-color: white; width: 1240px; padding: 22px; font-family: 'Roboto'">
   <p style="font-size: 16px">SAMPLE</p><br><br>
-
-  <label>
-    <p>
-      Project Code</p>
-    <input appInput required/>
-  </label>
-
-  <label style="margin-left: 25px">
-    <p>
-      Project Title </p>
-    <input appInput style="width: 890px;" required>
-  </label><br><br><br>
-
-  <label>
-    <p>
-      Description</p><br>
-    <textarea appInput [cols]="152" [rows]="5"></textarea>
-  </label><br><br>
-
-  <div style="font-size: 13px">
+  <form [formGroup]="form1" (ngSubmit)="onSubmit()">
     <label>
       <p>
-        Implementation Status</p>
-      <select appInput required style="width: 270px">
-        <option [value]=null>-select-</option>
-        <option *ngFor="let status of imp_statuses" [value]="status.id" >{{status.name}}</option>
-      </select>
+        Project Code</p>
+      <input type="text" appInput formControlName="projectCode" required/>
     </label>
 
-    <label style="margin-left: 90px">
+    <label style="margin-left: 25px">
       <p>
-        Planned Start Date </p>
-      <input #p appInput type="date" [(ngModel)]="startDate" required>
-    </label>
+        Project Title </p>
+      <input type="text" appInput style="width: 890px;" formControlName="projectTitle" required>
+    </label><br><br><br>
 
-    <label style="margin-left: 50px">
-      <p>
-        Planned End Date </p>
-      <input #pp appInput type="date" [(ngModel)]="endDate">
-    </label>
+    <label>
+      <p>Description</p><br>
+      <textarea [cols]="152" appInput [rows]="5" type="text" formControlName="description"></textarea>
+    </label><br><br>
 
-    <label style="margin-left: 50px">
-      <p>
-        Duration </p>
-      <input #pp appInput [disabled]="$any(true)" *ngIf="!pp.value"  [value]="duration">
-      <!--        <button (click)="getDuration()">aa</button>-->
-    </label>
-  </div>
+    <div style="font-size: 13px">
+      <label>
+        <p>
+          Implementation Status</p>
+        <select appInput style="width: 270px" formControlName="implementationStatus" required>
+          <option [value]=null>-select-</option>
+          <option *ngFor="let status of imp_statuses" [value]="status.id">{{status.name}}</option>
+        </select>
+      </label>
+
+      <label style="margin-left: 90px">
+        <p>
+          Planned Start Date </p>
+        <input #p appInput type="date" [(ngModel)]="startDate" formControlName="startDate" required>
+      </label>
+
+      <label style="margin-left: 50px">
+        <p>
+          Planned End Date </p>
+        <input #pp appInput type="date" [(ngModel)]="endDate" formControlName="endDate">
+      </label>
+
+      <label style="margin-left: 50px">
+        <p>
+          Duration </p>
+        <input #pp appInput [disabled]="$any(true)" *ngIf="!pp.value" [value]="duration">
+        <!--        <button (click)="getDuration()">aa</button>-->
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="!form1.valid">{{form1.status}}</button>
+  </form>
+
 </div>

@@ -9,11 +9,6 @@ export class ClassifierServiceService {
   constructor() {
   }
 
-
-  getClassifier() {
-
-  }
-
   implementation_Status: Classifiers[] = [new Classifiers(1, 'Planned'), new Classifiers(2, 'Pipelined'), new Classifiers(3, 'Ongoing')
     , new Classifiers(4, 'Stalled'), new Classifiers(5, 'Extended'), new Classifiers(6, 'Terminated')
     , new Classifiers(7, 'Suspended'), new Classifiers(8, 'Compladed')];
@@ -23,8 +18,8 @@ export class ClassifierServiceService {
     , new Classifiers(3, 'Economy'), new Classifiers(4, 'Administrative')];
 
 
-  getClasssifier(Classifier_Name: string) {
-    switch (Classifier_Name) {
+  getClassifier(classifierName: string) {
+    switch (classifierName) {
       case '1':
         return this.implementation_Status;
       case '2':
