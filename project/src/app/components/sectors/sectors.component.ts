@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClassifierServiceService} from '../../services/classifier-service.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-sectors',
@@ -9,7 +9,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class SectorsComponent implements OnInit {
 
-  constructor(public cs: ClassifierServiceService) {
+  constructor(public cs: ClassifierServiceService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -17,13 +17,16 @@ export class SectorsComponent implements OnInit {
 
   sectors = this.cs.getClassifier('2');
 
-  sectorsForm = new FormGroup({
-    percent: new FormControl(""),
-    sector: new FormControl(undefined),
+  sectorsForm = this.fb.group({
+    percent: [''],
+    sector: [undefined],
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
   });
 
   sectorsAdd(){
-    console.log(this.sectorsForm.value)
+    console.log(this.sectorsForm.get('aliases') as FormArray)
   }
 
 }
