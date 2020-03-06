@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ClassifierServiceService} from '../../services/classifier-service.service';
-import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Sectors} from '../../model/sectors';
 
 @Component({
@@ -37,14 +37,19 @@ export class SectorsComponent implements OnInit {
   // }
 
 
-  sectorsArr: Sectors[] = [];
+  sectorsArr: Sectorss[] = [];
 
   sectorsAdd() {
-    this.sectorsArr.push(this.sectorsForm.value);
+    this.sectorsForm.value.sectorName = this.cs.getSectorName(this.sectorsForm.value.sector);
+    if(this.sectorsForm.value.sector && this.sectorsForm.value.percent)this.sectorsArr.push(this.sectorsForm.value);
     console.log(this.sectorsForm.value);
-    console.log(this.sectorsArr);
+    console.log(this.sectorsArr );
   }
 
+}
 
-
+interface Sectorss {
+  sectorId?: string;
+  percent?: number;
+  sectorName?: string;
 }

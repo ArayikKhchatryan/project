@@ -1,20 +1,27 @@
 <form [formGroup]="sectorsForm" (ngSubmit)="sectorsAdd()">
-  <div style="margin-top: 34px; margin-left:  155px; background-color: white; width: 1240px; padding: 22px">
+  <div
+    style="margin-top: 34px; margin-left:  155px; background-color: white; width: 1240px; padding: 22px; padding-bottom: 50px">
     <p style="font-size: 16px">Sectors (in line table)</p><br>
-    <div style="height: 300px">
-      <table>
+    <div>
+      <p *ngIf="sectorsArr.length>0">Sector Name <span style="margin-left: 590px">%</span></p>
 
+      <table border="1px">
+        <tr *ngFor="let i of sectorsArr">
+          <td style="width: 400px; height: 50px">{{i.sectorName}}</td>
+          <td style="width: 300px; height: 50px">{{i.percent}}</td>
+        </tr>
       </table>
-            <ol>
-              <li *ngFor="let i of sectorsArr">{{i}}</li>
-            </ol>
     </div>
-    <select style="width: 270px" formControlName="sector" appInput>
-      <option *ngFor="let sector of sectors" [value]="sector.id">{{sector.name}}</option>
-    </select>
+    <!--      <ol>-->
+    <!--        <li *ngFor="let i of sectorsArr">{{i.sectorName}}, {{i.percent}}</li>-->
+    <!--      </ol>-->
+    <div style="margin-top: 20px">
+      <select style="width: 270px" formControlName="sector" appInput>
+        <option *ngFor="let sector of sectors" [value]="sector.id">{{sector.name}}</option>
+      </select>
 
-    <input type="number" formControlName="percent" appInput #name min="0" max="100">
-    <button>ADD</button>
-
+      <input type="number" formControlName="percent" appInput #name min="0" max="100"> %
+      <button>ADD</button>
+    </div>
   </div>
 </form>

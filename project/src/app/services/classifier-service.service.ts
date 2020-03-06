@@ -26,6 +26,23 @@ export class ClassifierServiceService {
         return this.sectors_classifier;
     }
   }
+
+  // getImpStatusName(_id): string{
+  //   for(let obj of this.implementation_Status){
+  //     if(obj.id == _id){
+  //       return obj.name;
+  //     }
+  //   }
+  // }
+
+  getSectorName(_id): string{
+    for(let obj of this.sectors_classifier){
+      if(obj.id == _id){
+        return obj.name;
+      }
+    }
+  }
+
 }
 
 
