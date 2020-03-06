@@ -5,12 +5,15 @@
       <table>
 
       </table>
+            <ol>
+              <li *ngFor="let i of sectorsArr">{{i}}</li>
+            </ol>
     </div>
     <select style="width: 270px" formControlName="sector" appInput>
       <option *ngFor="let sector of sectors" [value]="sector.id">{{sector.name}}</option>
     </select>
 
-    <input type="number" formControlName="percent" appInput #name>
+    <input type="number" formControlName="percent" appInput #name min="0" max="100">
     <button>ADD</button>
 
   </div>
