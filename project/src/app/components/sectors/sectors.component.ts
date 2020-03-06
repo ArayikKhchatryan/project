@@ -26,7 +26,6 @@ export class SectorsComponent implements OnInit {
     //   this.fb.control('')
     // ])
   });
-
   // sectorsAdd(){
   //   this.aliases.push(this.fb.control(this.sectorsForm));
   //   console.log(this.sectorsForm.get('aliases') as FormArray)

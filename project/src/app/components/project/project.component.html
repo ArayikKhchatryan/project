@@ -1,0 +1,89 @@
+<div style=" font-family: Roboto">
+
+  <div class="head">
+    <img src="assets/Capture.png" width="117%" height="150px">
+  </div>
+
+  <div class="head">
+    <div style="margin-left: 400px; margin-top: 17px; color: white">
+      <h3 style="display: inline; font-size: 21px"> {{date}} -</h3>
+      <pre style="display: inline; background-color: transparent; border: transparent"> </pre>
+      <p style="display: inline; font-size: 18px">{{title}}</p>
+    </div>
+    <br>
+    <p style="color: white; font-size: 13px; margin-left: 400px">{{description}}</p>
+  </div>
+
+  <div style="position: fixed; margin-left: 1200px">
+    <button style="background-color: rgba(111, 172, 40, 1) ; color: white">CANCEL</button>
+    <button>SAVE</button>
+    <button style="width: 120px">SEVE & CLOSE</button>
+  </div>
+
+
+</div>
+
+
+
+
+<div
+  style="margin-top: 0px; margin-left:  155px; background-color: white; width: 1240px; padding: 22px; font-family: 'Roboto'">
+  <div style="margin-top: 241px; background-color: lightgray"></div>
+  <p style="font-size: 16px">SAMPLE</p><br><br>
+  <form [formGroup]="form1" (ngSubmit)="onSubmit()">
+    <label>
+      <p>
+        Project Code</p>
+      <input type="text" appInput formControlName="projectCode" required/>
+    </label>
+
+    <label style="margin-left: 25px">
+      <p>
+        Project Title </p>
+      <input type="text" appInput style="width: 890px;" formControlName="projectTitle" required>
+    </label><br><br><br>
+
+    <label>
+      <p>Description</p><br>
+      <textarea [cols]="152" appInput [rows]="5" type="text" formControlName="description"></textarea>
+    </label><br><br>
+
+    <div style="font-size: 13px">
+      <label>
+        <p>
+          Implementation Status</p>
+        <select appInput style="width: 270px" formControlName="implementationStatus" required>
+          <option [value]=0 selected>-select-</option>
+          <option *ngFor="let status of imp_statuses" [value]="status.id">{{status.name}}</option>
+        </select>
+      </label>
+
+      <label style="margin-left: 90px">
+        <p>
+          Planned Start Date </p>
+        <input #p appInput type="date" [(ngModel)]="startDate" formControlName="startDate" required>
+      </label>
+
+      <label style="margin-left: 50px">
+        <p>
+          Planned End Date </p>
+        <input #pp appInput type="date" [(ngModel)]="endDate" formControlName="endDate">
+      </label>
+
+      <label style="margin-left: 50px">
+        <p>
+          Duration </p>
+        <input appInput [disabled]="$any(true)" [value]="duration">
+        <!--        <button (click)="getDuration()">aa</button>-->
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="!form1.valid">{{form1.status}}</button>
+  </form>
+
+</div>
+
+
+
+
+

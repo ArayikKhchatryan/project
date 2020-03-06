@@ -14,6 +14,7 @@ import {ProjectModel} from './model/project-model';
 import { InputDirective } from './directives/input.directive';
 import {RouterModule, Routes} from '@angular/router';
 import { AddComponentComponent } from './components/add-component/add-component.component';
+import { ProjectComponent } from './components/project/project.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     LocationsComponent,
     InputDirective,
     AddComponentComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
